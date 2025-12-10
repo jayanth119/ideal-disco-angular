@@ -1,0 +1,82 @@
+<p>formcontrol works!</p>
+<div class="form-decor">
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <label>
+    Name
+    <input formControlName="name" />
+  </label>
+
+  <div
+    *ngIf="
+      form.get('name')?.invalid &&
+      (form.get('name')?.dirty || form.get('name')?.touched || submitted)
+    "
+    style="color: crimson"
+  >
+    <small *ngIf="form.get('name')?.errors?.['required']">
+      Name is required.
+    </small>
+    <small *ngIf="form.get('name')?.errors?.['minlength']">
+      Name must be at least 5 characters.
+    </small>
+  </div>
+  <br />
+  <br />
+  <br />
+
+  <label>
+    Email
+    <input type="email" formControlName="email" />
+  </label>
+
+  <div
+    *ngIf="
+      form.get('email')?.invalid &&
+      (form.get('email')?.dirty || form.get('email')?.touched || submitted)
+    "
+    style="color: crimson"
+  >
+    <small *ngIf="form.get('email')?.errors?.['required']">
+      Email is required.
+    </small>
+    <small *ngIf="form.get('email')?.errors?.['email']">
+      Email must be valid.
+    </small>
+  </div>
+
+  <br />
+
+  <br />
+  <br />
+  <label>
+    Password
+    <input type="password" formControlName="password" />
+  </label>
+
+  <div
+    *ngIf="
+      form.get('password')?.invalid &&
+      (form.get('password')?.dirty ||
+        form.get('password')?.touched ||
+        submitted)
+    "
+    style="color: crimson"
+  >
+    <small *ngIf="form.get('password')?.errors?.['required']">
+      Password is required.
+    </small>
+    <small *ngIf="form.get('password')?.errors?.['minlength']">
+      Password must be at least 5 characters.
+    </small>
+  </div>
+
+  <br />
+  <br />
+  <br />
+
+  <button type="submit" [disabled]="form.invalid">Submit</button>
+</form>
+</div>
+<p>Status: {{ form.status }}</p>
+<p>Value: {{ form.value | json }}</p>
+<p *ngIf="submitted" style="color: seagreen">Submitted!</p>

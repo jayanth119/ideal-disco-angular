@@ -1,0 +1,67 @@
+
+
+<h1> {{ title  }} ,   {{ 2 + 3 }}</h1>
+<p>demo works!</p>
+
+
+<ul>
+    <li *ngFor = "let day of days    ">  {{ day | uppercase }} </li>
+    <li *ngFor="let num of nums"> {{ num }}</li>
+
+</ul>
+
+
+
+
+
+
+<br>
+<hr>
+<textarea  #imp (input)="text = imp.value" > </textarea>
+<br>
+
+
+<button (click)="increase($event)"  >increase </button>
+
+{{ nu }}
+<button (click)="decrease($event)"  >decrease </button>
+
+
+
+
+<input type="checkbox"   checked  #isActive (click)="toggle()">
+
+
+<br>
+
+<!--
+ <ng-container *ngIf="isAct; else villan">
+  <ng-template [ngTemplateOutlet]="hero"></ng-template>
+</ng-container>
+
+<ng-template #hero>
+  <p>You are Hero</p>
+</ng-template>
+
+<ng-template #villan>
+  <p>You are Villain</p>
+</ng-template> 
+ --> 
+<h1>{{ text }}</h1>
+
+
+
+
+
+
+<!-- <form #f="ngForm" (ngSubmit)="onSubmit()">
+  <input name="name" [(ngModel)]="name" required minlength="3" #c="ngModel">
+  <div *ngIf="c.invalid && (c.dirty || c.touched)">Invalid</div>
+  <button [disabled]="f.invalid">Submit</button>
+</form>
+
+
+{{name}}  --> 
+
+
+
