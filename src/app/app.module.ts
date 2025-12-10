@@ -10,6 +10,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { AuthModule } from './features/auth/auth.module';
+
 
 
 
@@ -24,9 +26,12 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
     BrowserModule,
     AppRoutingModule,
     // FormsModule ,
+    AuthModule,
     MatSlideToggleModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    
+   
   ],
 
   providers: [  ],
