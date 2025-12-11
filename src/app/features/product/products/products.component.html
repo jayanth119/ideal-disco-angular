@@ -1,0 +1,16 @@
+<p>products works!</p>
+
+<div class="products-grid">
+<app-productcard *ngFor="let product of products; trackBy: trackByProductId"
+  [title] = "product.title"
+  [description] = "product.description"
+  [price] = "product.price"
+  [rating] = "product.rating"
+  [brand ] = product.brand 
+  [imageUrl] = "product.images && product.images.length ? product.images[0] : null" 
+>
+
+
+</app-productcard>
+
+</div>

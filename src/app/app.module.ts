@@ -13,6 +13,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { AuthModule } from './features/auth/auth.module';
 import { ParentComponent } from './parent/parent.component';
 import { ChildComponent } from './child/child.component';
+import { ProductModule } from './features/product/product.module';
 
 
 
@@ -31,6 +32,7 @@ import { ChildComponent } from './child/child.component';
     AppRoutingModule,
     // FormsModule ,
     AuthModule,
+    ProductModule,
     MatSlideToggleModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,

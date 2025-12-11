@@ -1,0 +1,33 @@
+<mat-card class="product-card" appearance="outlined">
+
+
+  <div class="image-wrapper">
+    <img mat-card-image [src]="imageUrl" alt="{{ title }}">
+     <span class="price-tag"> Price : ₹{{ price }}</span>
+  </div>
+
+
+  <mat-card-header>
+    <mat-card-title class="product-title">{{ title }}</mat-card-title>
+     
+    <mat-card-subtitle class="product-rating">
+        <span > Brand : {{ brand }}</span>
+      <mat-icon class="star-icon">star</mat-icon>
+      Rating :{{ rating }}
+    </mat-card-subtitle>
+  </mat-card-header>
+
+
+  <mat-card-content>
+    <p class="product-description">
+      {{ description }}
+    </p>
+  </mat-card-content>
+
+
+  <mat-card-actions align="end">
+    <button mat-raised-button color="primary">Add to Cart</button>
+    <button mat-raised-button color="accent">Buy Now</button>
+  </mat-card-actions>
+
+</mat-card>
