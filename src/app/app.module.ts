@@ -14,7 +14,10 @@ import { AuthModule } from './features/auth/auth.module';
 import { ParentComponent } from './parent/parent.component';
 import { ChildComponent } from './child/child.component';
 import { ProductModule } from './features/product/product.module';
-
+import { HeaderComponent } from './header/header.component';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatButtonModule} from '@angular/material/button';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 
 
@@ -25,19 +28,24 @@ import { ProductModule } from './features/product/product.module';
     DemoComponent,
     FormcontrolComponent,
     ParentComponent,
-    ChildComponent , 
+    ChildComponent,
+    HeaderComponent,
+    
+    
   ],
   imports: [
     BrowserModule,
+    ProductModule,
     AppRoutingModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatMenuModule, 
     // FormsModule ,
     AuthModule,
-    ProductModule,
+    
     MatSlideToggleModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    
-   
   ],
 
   providers: [  ],

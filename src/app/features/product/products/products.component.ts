@@ -5,7 +5,7 @@ import { ProductserviceService } from 'src/app/services/productservice/productse
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
-  styleUrls: ['./products.component.scss'],
+  styleUrls: ['./products.component.scss'], 
 })
 export class ProductsComponent implements OnInit {
   products : Product[] = [

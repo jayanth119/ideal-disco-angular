@@ -1,0 +1,21 @@
+<mat-toolbar color="primary" class="navbar">
+
+  <!-- Logo / Title -->
+  <span class="logo">Amazon</span>
+
+  <!-- Spacer -->
+  <span class="spacer"></span>
+
+  <!-- Navigation Items -->
+  <button mat-button routerLink="/login">Login</button>
+  <button mat-button routerLink="/register">Register</button>
+  <button mat-button routerLink="/forgot">Forgot</button>
+  <button mat-button [matMenuTriggerFor]="productsMenu">Products</button>
+
+  <!-- Products Menu -->
+  <mat-menu #productsMenu="matMenu">
+    <button mat-menu-item routerLink="/product">All Products</button>
+    <button mat-menu-item routerLink="/product">Add Product</button>
+  </mat-menu>
+
+</mat-toolbar>
