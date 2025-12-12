@@ -20,8 +20,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
 import { SharedModule } from './shared/shared.module';
 import { FooterComponent } from './components/footer/footer.component';
-import { ProductdetailComponent } from './features/product/productdetail/productdetail.component';
 import { FilesModule } from './features/files/files.module';
+import { FormlyModule } from '@ngx-formly/core';
+import { FormlyBootstrapModule } from '@ngx-formly/bootstrap';
 
  
 @NgModule({
@@ -51,6 +52,8 @@ import { FilesModule } from './features/files/files.module';
     MatSlideToggleModule,
     BrowserAnimationsModule,
     SharedModule,
+    FormlyModule.forRoot(),
+    FormlyBootstrapModule,
   ],
 
   providers: [  HeaderComponent  ],

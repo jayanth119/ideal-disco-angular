@@ -10,13 +10,17 @@ import { ProductsComponent } from './products/products.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { ProductdetailComponent } from './productdetail/productdetail.component';
 import { ReviewsComponent } from './reviews/reviews.component';
-
+import { AddproductComponent } from './addproduct/addproduct.component';
+import { FormlyBootstrapModule } from '@ngx-formly/bootstrap'; 
+import { ReactiveFormsModule } from '@angular/forms'; 
+import { FormlyModule } from '@ngx-formly/core';
 @NgModule({
   declarations: [
     ProductcardComponent,
     ProductsComponent,
     ProductdetailComponent,
-    ReviewsComponent
+    ReviewsComponent,
+    AddproductComponent,
   ],
   imports: [
     CommonModule,
@@ -25,6 +29,13 @@ import { ReviewsComponent } from './reviews/reviews.component';
     MatCardModule,
     MatIconModule,
     SharedModule  , 
+    ReactiveFormsModule,
+    FormlyModule.forRoot({
+      validationMessages: [
+        { name: 'required', message: 'This field is required' }, 
+      ],
+    }),
+    FormlyBootstrapModule
 
   ],
   exports: [

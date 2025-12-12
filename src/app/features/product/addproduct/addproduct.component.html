@@ -1,0 +1,14 @@
+<p>addproduct works!</p>
+
+<div class="container-fluid bg-primary text-white  p-30 "  >
+<form [formGroup]="form" (ngSubmit)="onSubmit(model)">
+  <formly-form [form]="form" [model]="model" [fields]="fields" [options]="options"></formly-form>
+
+  <div style="margin-top: 1rem;">
+    <button type="submit" class="btn btn-primary" [disabled]="!form.valid">Submit</button>
+  </div>
+</form>
+</div>
+<hr />
+<h4>Product model preview </h4>
+<pre>{{ model | json }}</pre>
