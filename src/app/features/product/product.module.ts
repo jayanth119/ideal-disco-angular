@@ -7,11 +7,16 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { ProductsComponent } from './products/products.component';
+import { SharedModule } from 'src/app/shared/shared.module';
+import { ProductdetailComponent } from './productdetail/productdetail.component';
+import { ReviewsComponent } from './reviews/reviews.component';
 
 @NgModule({
   declarations: [
     ProductcardComponent,
-    ProductsComponent
+    ProductsComponent,
+    ProductdetailComponent,
+    ReviewsComponent
   ],
   imports: [
     CommonModule,
@@ -19,11 +24,13 @@ import { ProductsComponent } from './products/products.component';
     MatButtonModule,
     MatCardModule,
     MatIconModule,
+    SharedModule  , 
 
   ],
   exports: [
     ProductcardComponent,
-    ProductsComponent
+    ProductsComponent , 
+    ProductdetailComponent 
   ],
 })
 export class ProductModule { }

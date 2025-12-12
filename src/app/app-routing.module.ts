@@ -9,6 +9,7 @@ export  const routes: Routes = [
   { path : "login" , component: LoginComponent },
   { path : "register" , component: RegisterComponent },
   {path : 'forgot' , component: ForgotpasswordComponent},
+  {path : '' , loadChildren: () => import('./features/files/files.module').then(m => m.FilesModule) },
   {path : '' , loadChildren: () => import('./features/product/product.module').then(m => m.ProductModule) },
   { path: "**", redirectTo: "login" }
 

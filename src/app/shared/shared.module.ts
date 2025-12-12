@@ -1,0 +1,29 @@
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatMenuModule }    from '@angular/material/menu';
+import { MatButtonModule }  from '@angular/material/button';
+import { HeaderComponent } from '../components/header/header.component';
+import { FooterComponent } from '../components/footer/footer.component';
+
+
+@NgModule({
+  declarations: [
+    HeaderComponent  ,
+  
+    
+  ],
+  imports: [
+    CommonModule,
+    MatToolbarModule,
+    MatMenuModule,
+    MatButtonModule,
+   
+  ],
+  exports: [
+    HeaderComponent,
+    
+    
+  ] 
+})
+export class SharedModule { }

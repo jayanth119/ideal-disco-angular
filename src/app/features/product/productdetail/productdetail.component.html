@@ -1,0 +1,54 @@
+<br>
+<br>
+<div class="product-detail" *ngIf="product">
+<div class="media">
+<img class="main-image" [src]="selectedImage" alt="{{product.title}}" />
+<div class="thumbs" *ngIf="product.images?.length">
+<img *ngFor="let img of product.images" class="thumb" [src]="img" (click)="selectImage(img)" [class.active]="img===selectedImage"/>
+</div>
+</div>
+
+
+<div class="info">
+<h2 class="title">{{ product.title }}</h2>
+<p class="brand" *ngIf="product.brand">Brand: {{ product.brand }}</p>
+<p class="sku" *ngIf="product.sku">SKU: {{ product.sku }}</p>
+
+
+<div class="price-row">
+<div class="price">
+<span class="current">\${{ discountedPrice }}</span>
+<span class="original" *ngIf="product.discountPercentage">\${{ product.price }}</span>
+<span class="discount" *ngIf="product.discountPercentage">({{ product.discountPercentage }}% off)</span>
+</div>
+<div class="rating" *ngIf="product.rating">Rating: {{ product.rating }} / 5</div>
+</div>
+
+
+<p class="description">{{ product.description }}</p>
+
+
+<ul class="meta">
+<li *ngIf="product.availabilityStatus">Status: {{ product.availabilityStatus }}</li>
+<li *ngIf="product.stock !== undefined">Stock: {{ product.stock }}</li>
+<li *ngIf="product.weight">Weight: {{ product.weight }} g</li>
+<li *ngIf="product.warrantyInformation">Warranty: {{ product.warrantyInformation }}</li>
+<li *ngIf="product.shippingInformation">Shipping: {{ product.shippingInformation }}</li>
+<li *ngIf="product.minimumOrderQuantity">MOQ: {{ product.minimumOrderQuantity }}</li>
+</ul>
+
+
+<div class="tags" *ngIf="product.tags?.length">
+<span class="tag" *ngFor="let t of product.tags">{{ t }}</span>
+</div>
+</div>
+</div>
+
+
+<hr />
+
+
+ <section class="reviews" *ngIf="product.reviews?.length">
+<h3>Reviews ({{ product.reviews.length }})</h3>
+<app-reviews *ngFor="let r of product.reviews" [review]="r"></app-reviews>
+</section>

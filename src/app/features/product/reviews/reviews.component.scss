@@ -1,0 +1,16 @@
+.review {
+    border: 1px solid #eee;
+    padding: .75rem;
+    margin-bottom: .5rem;
+    border-radius: 6px;
+
+    .header {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .rating {
+        font-weight: 600;
+        margin-top: .25rem;
+    }
+}

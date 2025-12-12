@@ -1,0 +1,9 @@
+<div class="review">
+<div class="header">
+<strong class="name">{{ review.reviewerName  || 'Anonymous' }}</strong>
+<span class="date">{{ formatDate(review.date) }}</span>
+</div>
+<div class="rating">Rating: {{ review.rating }} / 5</div>
+<p class="comment">{{ review.comment }}</p>
+<div class="meta" *ngIf="review.reviewerEmail">{{ review.reviewerEmail }}</div>
+</div>

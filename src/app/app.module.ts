@@ -14,12 +14,14 @@ import { AuthModule } from './features/auth/auth.module';
 import { ParentComponent } from './parent/parent.component';
 import { ChildComponent } from './child/child.component';
 import { ProductModule } from './features/product/product.module';
-import { HeaderComponent } from './header/header.component';
-import {MatMenuModule} from '@angular/material/menu';
-import {MatButtonModule} from '@angular/material/button';
+import { HeaderComponent } from './components/header/header.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
-
-
+import { MatButtonModule } from '@angular/material/button';
+import { MatMenuModule } from '@angular/material/menu';
+import { SharedModule } from './shared/shared.module';
+import { FooterComponent } from './components/footer/footer.component';
+import { ProductdetailComponent } from './features/product/productdetail/productdetail.component';
+import { FilesModule } from './features/files/files.module';
 
  
 @NgModule({
@@ -29,26 +31,29 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     FormcontrolComponent,
     ParentComponent,
     ChildComponent,
-    HeaderComponent,
-    
-    
+    FooterComponent,
+   
+  
   ],
   imports: [
     BrowserModule,
+    FilesModule , 
     ProductModule,
+    
     AppRoutingModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatMenuModule, 
     // FormsModule ,
     AuthModule,
-    
     MatSlideToggleModule,
     ReactiveFormsModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatMenuModule,
+    MatSlideToggleModule,
     BrowserAnimationsModule,
+    SharedModule,
   ],
 
-  providers: [  ],
+  providers: [  HeaderComponent  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

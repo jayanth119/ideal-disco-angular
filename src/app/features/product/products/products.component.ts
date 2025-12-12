@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Product } from 'src/app/models/productModel';
 import { ProductserviceService } from 'src/app/services/productservice/productservice.service';
 
@@ -10,7 +11,7 @@ import { ProductserviceService } from 'src/app/services/productservice/productse
 export class ProductsComponent implements OnInit {
   products : Product[] = [
   ] 
-  constructor( private productservice : ProductserviceService) { }
+  constructor( private productservice : ProductserviceService , private router: Router ) { }
 
   ngOnInit(): void {
   
@@ -22,5 +23,12 @@ export class ProductsComponent implements OnInit {
     trackByProductId(index: number, item: Product) {
     return item.id ?? index;
   } 
+
+    openProduct(product: Product) {
+      console.log(product);
+      
+    // navigate with state (so detail can use router.getCurrentNavigation().extras.state.product)
+    this.router.navigate(['/products', product.id], { state: { product } });
+  }
 
 }

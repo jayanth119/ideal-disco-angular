@@ -1,3 +1,5 @@
+import { Meta, Review } from "./reviewModel"
+
 export interface Product {
   id: number
   title: string
@@ -29,17 +31,3 @@ export interface Dimensions {
   depth: number
 }
 
-export interface Review {
-  rating: number
-  comment: string
-  date: string
-  reviewerName: string
-  reviewerEmail: string
-}
-
-export interface Meta {
-  createdAt: string
-  updatedAt: string
-  barcode: string
-  qrCode: string
-}
