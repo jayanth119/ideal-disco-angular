@@ -7,7 +7,6 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { ProductsComponent } from './products/products.component';
-import { SharedModule } from 'src/app/shared/shared.module';
 import { ProductdetailComponent } from './productdetail/productdetail.component';
 import { ReviewsComponent } from './reviews/reviews.component';
 import { AddproductComponent } from './addproduct/addproduct.component';
@@ -27,8 +26,7 @@ import { FormlyModule } from '@ngx-formly/core';
     ProductRoutingModule,
     MatButtonModule,
     MatCardModule,
-    MatIconModule,
-    SharedModule  , 
+    MatIconModule, 
     ReactiveFormsModule,
     FormlyModule.forRoot({
       validationMessages: [

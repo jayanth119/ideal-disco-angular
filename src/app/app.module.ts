@@ -18,11 +18,11 @@ import { HeaderComponent } from './components/header/header.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
-import { SharedModule } from './shared/shared.module';
-import { FooterComponent } from './components/footer/footer.component';
+import { SharedModule }  from './shared/shared.module';
 import { FilesModule } from './features/files/files.module';
 import { FormlyModule } from '@ngx-formly/core';
 import { FormlyBootstrapModule } from '@ngx-formly/bootstrap';
+import { RouterModule } from '@angular/router';
 
  
 @NgModule({
@@ -32,9 +32,7 @@ import { FormlyBootstrapModule } from '@ngx-formly/bootstrap';
     FormcontrolComponent,
     ParentComponent,
     ChildComponent,
-    FooterComponent,
    
-  
   ],
   imports: [
     BrowserModule,
@@ -48,6 +46,7 @@ import { FormlyBootstrapModule } from '@ngx-formly/bootstrap';
     ReactiveFormsModule,
     MatToolbarModule,
     MatButtonModule,
+    RouterModule, 
     MatMenuModule,
     MatSlideToggleModule,
     BrowserAnimationsModule,

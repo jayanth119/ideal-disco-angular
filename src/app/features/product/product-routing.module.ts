@@ -8,7 +8,7 @@ import { AddproductComponent } from './addproduct/addproduct.component';
 
 const routes: Routes = [
   {
-    path: 'product',
+    path: '',
     component: ProductsComponent 
   } ,
   {
@@ -16,8 +16,6 @@ const routes: Routes = [
     component: AddproductComponent
   },
   { path: 'products/:id', component: ProductdetailComponent },
-   { path: "**", redirectTo: "login" },
-  
 
 ];
 

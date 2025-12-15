@@ -4,12 +4,14 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule }    from '@angular/material/menu';
 import { MatButtonModule }  from '@angular/material/button';
 import { HeaderComponent } from '../components/header/header.component';
+import {  RouterModule } from '@angular/router';
 import { FooterComponent } from '../components/footer/footer.component';
 
 
 @NgModule({
   declarations: [
     HeaderComponent  ,
+    FooterComponent
   
     
   ],
@@ -18,10 +20,12 @@ import { FooterComponent } from '../components/footer/footer.component';
     MatToolbarModule,
     MatMenuModule,
     MatButtonModule,
+    RouterModule
    
   ],
   exports: [
     HeaderComponent,
+    FooterComponent,
     
     
   ] 
