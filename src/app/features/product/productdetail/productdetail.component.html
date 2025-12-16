@@ -21,7 +21,10 @@
 <span class="original" *ngIf="product.discountPercentage">\${{ product.price }}</span>
 <span class="discount" *ngIf="product.discountPercentage">({{ product.discountPercentage }}% off)</span>
 </div>
-<div class="rating" *ngIf="product.rating">Rating: {{ product.rating }} / 5</div>
+<div class="rating" *ngIf="product.rating">Rating:      <nz-rate
+      [ngModel]="product.rating"
+      nzDisabled
+    ></nz-rate>   {{ product.rating }} / 5</div>
 </div>
 
 

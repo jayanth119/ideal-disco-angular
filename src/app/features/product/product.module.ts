@@ -1,6 +1,5 @@
 import {  NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { ProductRoutingModule } from './product-routing.module';
 import { ProductcardComponent } from './productcard/productcard.component';
 import {MatButtonModule} from '@angular/material/button';
@@ -11,8 +10,15 @@ import { ProductdetailComponent } from './productdetail/productdetail.component'
 import { ReviewsComponent } from './reviews/reviews.component';
 import { AddproductComponent } from './addproduct/addproduct.component';
 import { FormlyBootstrapModule } from '@ngx-formly/bootstrap'; 
-import { ReactiveFormsModule } from '@angular/forms'; 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'; 
 import { FormlyModule } from '@ngx-formly/core';
+import { NzRateModule } from 'ng-zorro-antd/rate';
+import { NzAvatarModule } from 'ng-zorro-antd/avatar';
+import { NzCommentModule } from 'ng-zorro-antd/comment';
+import { NzIconModule } from 'ng-zorro-antd/icon';
+import { NzToolTipModule } from 'ng-zorro-antd/tooltip';
+
+
 @NgModule({
   declarations: [
     ProductcardComponent,
@@ -28,12 +34,15 @@ import { FormlyModule } from '@ngx-formly/core';
     MatCardModule,
     MatIconModule, 
     ReactiveFormsModule,
+    FormsModule, NzRateModule,
+    NzToolTipModule , 
+    NzAvatarModule, NzCommentModule, NzIconModule, 
     FormlyModule.forRoot({
       validationMessages: [
         { name: 'required', message: 'This field is required' }, 
       ],
     }),
-    FormlyBootstrapModule
+    FormlyBootstrapModule,
 
   ],
   exports: [

@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Review } from 'src/app/models/reviewModel';
-
+import { formatDistance } from 'date-fns'; 
 @Component({
   selector: 'app-reviews',
   templateUrl: './reviews.component.html',
@@ -19,6 +19,20 @@ export class ReviewsComponent implements OnInit {
     } catch {
       return dateStr;
     }
+  }
+
+  likes = 0;
+  dislikes = 0;
+  time = formatDistance(new Date(), new Date());
+
+  like(): void {
+    this.likes = 1;
+    this.dislikes = 0;
+  }
+
+  dislike(): void {
+    this.likes = 0;
+    this.dislikes = 1;
   }
 
   ngOnInit(): void {}

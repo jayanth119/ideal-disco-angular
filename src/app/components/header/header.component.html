@@ -1,21 +1,44 @@
-<mat-toolbar color="primary" class="navbar">
+<nz-layout class="layout">
+  <!-- HEADER -->
+  <nz-header class="navbar" nzTitle="header">
+    <div class="logo"><a routerLink="/" fragment="footer"> Amazon </a></div>
 
-  <!-- Logo / Title -->
-  <span class="logo">Amazon</span>
+    <ul nz-menu nzTheme="dark" nzMode="horizontal" class="menu">
+      <li nz-menu-item routerLink="/login">Login</li>
+      <li nz-menu-item routerLink="/register">Register</li>
+      <li nz-menu-item routerLink="/forgot">Forgot Password</li>
+      <li
+        nz-menu-item
+        nz-dropdown
+        [nzDropdownMenu]="productsMenu"
+        nzPlacement="bottomRight"
+      >
+        Products
+      </li>
 
-  <!-- Spacer -->
-  <span class="spacer"></span>
+      <li nz-menu-item>
+        <nz-badge [nzCount]="99999" style="margin-right: 24px">
+          <nz-avatar nzIcon="user" nzShape="square"></nz-avatar>
+        </nz-badge>
+      </li>
+    </ul>
+  </nz-header>
 
-  <!-- Navigation Items -->
-  <button mat-button routerLink="/login">Login</button>
-  <button mat-button routerLink="/register">Register</button>
-  <button mat-button routerLink="/forgot">Forgot</button>
-  <button mat-button [matMenuTriggerFor]="productsMenu">Products</button>
+  <!-- CONTENT -->
+  <nz-content class="content">
+    <router-outlet></router-outlet>
+  </nz-content>
 
-  <!-- Products Menu -->
-  <mat-menu #productsMenu="matMenu">
-    <button mat-menu-item routerLink="">All Products</button>
-    <button mat-menu-item routerLink="/addproduct">Add Product</button>
-  </mat-menu>
+  <!-- FOOTER -->
+  <nz-footer class="footer" id="footer">
+    Ant Design ©{{ date.getFullYear() }} Implemented by Angular
+  </nz-footer>
+</nz-layout>
 
-</mat-toolbar>
+<!-- Products Dropdown -->
+<nz-dropdown-menu #productsMenu="nzDropdownMenu">
+  <ul nz-menu>
+    <li nz-menu-item routerLink="">All Products</li>
+    <li nz-menu-item routerLink="/addproduct">Add Product</li>
+  </ul>
+</nz-dropdown-menu>

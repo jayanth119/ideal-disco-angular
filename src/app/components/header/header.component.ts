@@ -7,8 +7,10 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+  
   name : string = '';
-  constructor( private route: ActivatedRoute, ) { }
+  date : Date = new Date();
+  constructor( private route: ActivatedRoute ) { }
 
   ngOnInit(): void {
     

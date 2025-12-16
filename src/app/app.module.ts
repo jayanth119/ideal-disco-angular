@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { DemoComponent } from './demo/demo.component';
 // import { FormsModule } from '@angular/forms';
 import { FormcontrolComponent } from './formcontrol/formcontrol.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
@@ -23,6 +23,13 @@ import { FilesModule } from './features/files/files.module';
 import { FormlyModule } from '@ngx-formly/core';
 import { FormlyBootstrapModule } from '@ngx-formly/bootstrap';
 import { RouterModule } from '@angular/router';
+import { NZ_I18N } from 'ng-zorro-antd/i18n';
+import { en_US } from 'ng-zorro-antd/i18n';
+import { registerLocaleData } from '@angular/common';
+import en from '@angular/common/locales/en';
+import { HttpClientModule } from '@angular/common/http';
+
+registerLocaleData(en);
 
  
 @NgModule({
@@ -53,9 +60,11 @@ import { RouterModule } from '@angular/router';
     SharedModule,
     FormlyModule.forRoot(),
     FormlyBootstrapModule,
+    FormsModule,
+    HttpClientModule,
   ],
 
-  providers: [  HeaderComponent  ],
+  providers: [  HeaderComponent, { provide: NZ_I18N, useValue: en_US }  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
