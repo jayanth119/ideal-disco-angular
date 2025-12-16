@@ -18,7 +18,7 @@ import { LayoutComponent } from './components/layout/layout.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
-import { SharedModule }  from './shared/shared.module';
+import { SharedModule } from './shared/shared.module';
 import { FilesModule } from './features/files/files.module';
 import { FormlyModule } from '@ngx-formly/core';
 import { FormlyBootstrapModule } from '@ngx-formly/bootstrap';
@@ -27,12 +27,13 @@ import { NZ_I18N } from 'ng-zorro-antd/i18n';
 import { en_US } from 'ng-zorro-antd/i18n';
 import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
-import { HttpClientModule } from '@angular/common/http';
-import { NzNotificationModule } from 'ng-zorro-antd/notification'; 
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { NzNotificationModule } from 'ng-zorro-antd/notification';
+import { AuthInterceptor } from './core/interceptors/auth.interceptor';
+import { ErrorInterceptor } from './core/interceptors/error.interceptor';
 
 registerLocaleData(en);
 
- 
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,14 +41,12 @@ registerLocaleData(en);
     FormcontrolComponent,
     ParentComponent,
     ChildComponent,
-  
-   
   ],
   imports: [
     BrowserModule,
-    FilesModule , 
+    FilesModule,
     ProductModule,
-    
+
     AppRoutingModule,
     // FormsModule ,
     AuthModule,
@@ -55,7 +54,7 @@ registerLocaleData(en);
     ReactiveFormsModule,
     MatToolbarModule,
     MatButtonModule,
-    RouterModule, 
+    RouterModule,
     MatMenuModule,
     MatSlideToggleModule,
     BrowserAnimationsModule,
@@ -64,10 +63,15 @@ registerLocaleData(en);
     FormlyBootstrapModule,
     FormsModule,
     HttpClientModule,
-    NzNotificationModule 
+    NzNotificationModule,
   ],
 
-  providers: [  LayoutComponent, { provide: NZ_I18N, useValue: en_US }  ],
-  bootstrap: [AppComponent]
+  providers: [
+    LayoutComponent,
+    { provide: NZ_I18N, useValue: en_US },
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+  ],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

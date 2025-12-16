@@ -5,8 +5,8 @@ import { RegisterComponent } from './features/auth/register/register.component';
 import { ForgotpasswordComponent } from './features/auth/forgotpassword/forgotpassword.component';
 
 export  const routes: Routes = [
-  {path : '' , loadChildren: () => import('./features/files/files.module').then(m => m.FilesModule) },
-  {path : '' , loadChildren: () => import('./features/product/product.module').then(m => m.ProductModule) },
+  {path : '' , loadChildren: () => import('./features/files/files.module').then(m => m.FilesModule)   },
+  {path : '' , loadChildren: () => import('./features/product/product.module').then(m => m.ProductModule)  },
   { path : "login" , component: LoginComponent },
   { path : "register" , component: RegisterComponent },
   {path : 'forgot' , component: ForgotpasswordComponent},

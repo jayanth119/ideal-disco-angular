@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { NotificationService } from 'src/app/core/services/notificationservice/notification.service';
+import { ProductserviceService } from 'src/app/core/services/productservice/productservice.service';
 import { Product } from 'src/app/models/productModel';
 
 @Component({
@@ -11,28 +13,27 @@ export class ProductdetailComponent implements OnInit {
   @Input() product: Product | any;
   selectedImage?: string;
 
-  constructor(private router: Router) {}
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private productservice: ProductserviceService,
+    private notify: NotificationService
+  ) {}
 
   ngOnInit(): void {
+    const productId: number = this.activatedRoute.snapshot.params['id'];
+    this.productservice.getProduct(productId).subscribe({
+      next: (res: any) => {
+        this.product = res;
+        console.log(this.product);
+         this.selectedImage = this.product.images?.[0] || this.product.thumbnail || 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5IKXwqPvjNJW0hISdv8H3N7XB-yvIrx6KZg&s'; 
+        this.notify.success(res.message);
+      },
+      error: (err) => {
+        this.notify.showByStatus(err.status, err.error?.message);
+      },
+
+    })
    
-    if (!this.product || Object.keys(this.product).length === 0) {
-     
-      const navStateProduct = (this.router.getCurrentNavigation && this.router.getCurrentNavigation()?.extras?.state?.['product'])
-        || (history && (history.state as any)?.product);
-
-      if (navStateProduct) {
-        this.product = navStateProduct as Product;
-      }
-    }
-
-    if (!this.product || Object.keys(this.product).length === 0) {
-      console.error('Product not found in @Input or navigation state.');
-    
-      this.product = undefined;
-      return;
-    }
-
-    this.selectedImage = this.product.images?.[0] || this.product.thumbnail || '';
   }
 
   get discountedPrice(): number {
