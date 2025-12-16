@@ -14,7 +14,7 @@ import { AuthModule } from './features/auth/auth.module';
 import { ParentComponent } from './parent/parent.component';
 import { ChildComponent } from './child/child.component';
 import { ProductModule } from './features/product/product.module';
-import { HeaderComponent } from './components/header/header.component';
+import { LayoutComponent } from './components/layout/layout.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
@@ -28,6 +28,7 @@ import { en_US } from 'ng-zorro-antd/i18n';
 import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
 import { HttpClientModule } from '@angular/common/http';
+import { NzNotificationModule } from 'ng-zorro-antd/notification'; 
 
 registerLocaleData(en);
 
@@ -39,6 +40,7 @@ registerLocaleData(en);
     FormcontrolComponent,
     ParentComponent,
     ChildComponent,
+  
    
   ],
   imports: [
@@ -62,9 +64,10 @@ registerLocaleData(en);
     FormlyBootstrapModule,
     FormsModule,
     HttpClientModule,
+    NzNotificationModule 
   ],
 
-  providers: [  HeaderComponent, { provide: NZ_I18N, useValue: en_US }  ],
+  providers: [  LayoutComponent, { provide: NZ_I18N, useValue: en_US }  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

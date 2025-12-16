@@ -1,6 +1,8 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Product } from 'src/app/models/productModel';
+import { NotificationService } from 'src/app/services/notificationservice/notification.service';
 import { ProductserviceService } from 'src/app/services/productservice/productservice.service';
 
 @Component({
@@ -11,12 +13,27 @@ import { ProductserviceService } from 'src/app/services/productservice/productse
 export class ProductsComponent implements OnInit {
   products : Product[] = [
   ] 
-  constructor( private productservice : ProductserviceService , private router: Router ) { }
+  constructor(  private http: HttpClient, private productservice : ProductserviceService , private router: Router , 
+    private notify: NotificationService 
+   ) { }
+
+  //  submitProduct() {
+  //   this.http.get('https://dummyjson.com/ ').subscribe({
+  //     next: (res: any) => {
+  //       this.notify.showByStatus(201, res.message);
+  //     },
+  //     error: (err) => {
+  //       this.notify.showByStatus(err.status, err.error?.message);
+  //     },
+  //   });
+  // }
 
   ngOnInit(): void {
   
     this.products = this.productservice.getProducts();
     console.log(this.products[0]);
+    // this.submitProduct()
+  
     
 
   }
