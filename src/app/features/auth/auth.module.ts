@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule } from '@angular/forms';
+import { NgSelectOption, ReactiveFormsModule } from '@angular/forms';
 
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule }      from '@angular/material/input';
@@ -13,7 +13,7 @@ import { AuthRoutingModule } from './auth-routing.module';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
-
+import { NzSelectModule } from 'ng-zorro-antd/select';
 @NgModule({
   declarations: [RegisterComponent, LoginComponent, ForgotpasswordComponent],
   imports: [
@@ -26,7 +26,8 @@ import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.compone
     MatButtonModule,
     MatIconModule,
     MatCardModule,
-    MatDividerModule 
+    MatDividerModule ,
+    NzSelectModule 
   ],
   exports: [
     RegisterComponent,

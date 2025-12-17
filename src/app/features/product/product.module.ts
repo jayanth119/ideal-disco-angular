@@ -17,6 +17,7 @@ import { NzAvatarModule } from 'ng-zorro-antd/avatar';
 import { NzCommentModule } from 'ng-zorro-antd/comment';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzToolTipModule } from 'ng-zorro-antd/tooltip';
+import { NzNotificationModule } from 'ng-zorro-antd/notification';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { NzToolTipModule } from 'ng-zorro-antd/tooltip';
     MatIconModule, 
     ReactiveFormsModule,
     FormsModule, NzRateModule,
-    NzToolTipModule , 
+    NzToolTipModule ,
+    NzNotificationModule , 
     NzAvatarModule, NzCommentModule, NzIconModule, 
     FormlyModule.forRoot({
       validationMessages: [
