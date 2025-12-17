@@ -36,6 +36,8 @@ export class ProductsComponent implements OnInit {
           this.notify.success(res.message); 
        },
        error: (err) => {
+         localStorage.removeItem('access_token');
+         this.router.navigate(['/login']);
          this.notify.showByStatus(err.status, err.error?.message);
        },
      }) ; 
