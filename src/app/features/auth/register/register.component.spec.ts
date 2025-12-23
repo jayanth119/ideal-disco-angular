@@ -13,6 +13,8 @@ import { MatDividerModule } from '@angular/material/divider';
 import { RegisterComponent } from './register.component';
 import { NzNotificationModule } from 'ng-zorro-antd/notification';
 import { NotificationService } from 'src/app/core/services/notificationservice/notification.service';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('RegisterComponent', () => {
   let component: RegisterComponent;
@@ -23,7 +25,7 @@ describe('RegisterComponent', () => {
       imports: [
         ReactiveFormsModule,
         NoopAnimationsModule,
-
+        HttpClientTestingModule , 
         MatCardModule,
         MatFormFieldModule,
         MatInputModule,
@@ -32,6 +34,7 @@ describe('RegisterComponent', () => {
         MatIconModule,
         MatDividerModule,
         NzNotificationModule ,
+        RouterTestingModule 
       ],
       providers : [NotificationService] ,
       declarations: [RegisterComponent],
